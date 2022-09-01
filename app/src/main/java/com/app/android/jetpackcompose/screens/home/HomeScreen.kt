@@ -1,23 +1,39 @@
 package com.app.android.arkboilerplate.screens
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Text
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material.Divider
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.graphics.Color
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.app.android.jetpackcompose.viewmodel.SplashViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
+import com.app.android.jetpackcompose.components.ListViewItem
+import com.app.android.jetpackcompose.model.PokedexResultModel
+import com.app.android.jetpackcompose.viewmodel.pokemon.PokemonViewModel
 
 
 @Composable
-fun HomeScreen(){
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.White),
-        contentAlignment = Alignment.Center) {
-        Text(text = "Home Screen", color = Color.Black)
+fun HomeScreen(navHostController: NavHostController) {
+    val pokemonViewModel: PokemonViewModel = hiltViewModel();
+
+    LaunchedEffect(Unit) {
+        pokemonViewModel.getPokedex()
+    }
+    Scaffold {
+        LazyColumn {
+            itemsIndexed(
+                items = pokemonViewModel.pokedexList.results as List<PokedexResultModel>
+            )
+            { _, item ->
+                ListViewItem(pokemon = item, navHostController)
+                Divider(color = Color.LightGray)
+            }
+
+
+        }
+
     }
 }
+

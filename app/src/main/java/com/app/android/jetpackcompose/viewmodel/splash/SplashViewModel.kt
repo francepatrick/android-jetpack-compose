@@ -1,4 +1,4 @@
-package com.app.android.jetpackcompose.viewmodel
+package com.app.android.jetpackcompose.viewmodel.splash
 
 import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel

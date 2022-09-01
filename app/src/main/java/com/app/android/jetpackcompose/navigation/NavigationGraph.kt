@@ -23,6 +23,7 @@ fun NavigationGraph(navController: NavHostController){
         /**
          * main menu route with bottom navigation
          */
-        bottomNavigationGraph(navHostController = navController)
+        mainNavigationGraph(navHostController = navController)
+
     }
 }

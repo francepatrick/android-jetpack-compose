@@ -17,12 +17,9 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.app.android.jetpackcompose.R
-import com.app.android.jetpackcompose.navigation.AuthenticationRoute
 import com.app.android.jetpackcompose.navigation.HomeRoute
-import com.app.android.jetpackcompose.navigation.RootRoute
 import com.app.android.jetpackcompose.navigation.SplashRoute
-import com.app.android.jetpackcompose.screens.auth.Auth
-import com.app.android.jetpackcompose.viewmodel.SplashViewModel
+import com.app.android.jetpackcompose.viewmodel.splash.SplashViewModel
 import kotlinx.coroutines.delay
 
 

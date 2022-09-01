@@ -9,8 +9,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.tooling.preview.Preview
 import com.app.android.arkboilerplate.screens.MainApplicationScreen
 import com.app.android.jetpackcompose.ui.theme.JetpackComposeTheme
-import com.app.android.jetpackcompose.viewmodel.SplashViewModel
+import com.app.android.jetpackcompose.viewmodel.splash.SplashViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,18 +23,5 @@ class MainActivity : ComponentActivity() {
                 MainApplicationScreen(viewModel)
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    JetpackComposeTheme {
-        Greeting("Android")
     }
 }
